@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    loadbalancer:
+      enabled: true
+
+    gateway:
+      routes:
+        - id: cliente
+          uri: lb://cliente
+          predicates:
+            - Path=/api/cliente/**
+          filters:
+            - StripPrefix=2
+
+        - id: producto
+          uri: lb://producto
+          predicates:
+            - Path=/api/producto/**
+          filters:
+            - StripPrefix=2
+
+        - id: pedido
+          uri: lb://pedido
+          predicates:
+            - Path=/api/pedido/**
+          filters:
+            - StripPrefix=2
+
+       
+
+server:
+  port: 8090
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
