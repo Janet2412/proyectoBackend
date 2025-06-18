@@ -2,30 +2,35 @@ spring:
   application:
     name: api-gateway
 
+  security:
+    user:
+     name: ${AUTH_USER}
+     password: ${AUTH_USER} 
+
   cloud:
-    loadbalancer:
-      enabled: true
+   loadbalancer:
+     enabled: true
 
-    gateway:
+   gateway:
       routes:
-        - id: cliente
-          uri: lb://cliente
+        - id: clientes
+          uri: lb://clientes
           predicates:
-            - Path=/api/cliente/**
+            - Path=/api/clientes/**
           filters:
             - StripPrefix=2
 
-        - id: producto
-          uri: lb://producto
+        - id: productos
+          uri: lb://productos
           predicates:
-            - Path=/api/producto/**
+            - Path=/api/productos/**
           filters:
             - StripPrefix=2
 
-        - id: pedido
-          uri: lb://pedido
+        - id: pedidos
+          uri: lb://pedidos
           predicates:
-            - Path=/api/pedido/**
+            - Path=/api/pedidos/**
           filters:
             - StripPrefix=2
 

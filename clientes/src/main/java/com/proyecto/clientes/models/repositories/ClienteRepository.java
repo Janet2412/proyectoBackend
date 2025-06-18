@@ -1,5 +1,13 @@
 package com.proyecto.clientes.models.repositories;
 
-public interface ClientesRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import com.proyecto.commons.models.entities.Cliente;
+
+@Repository
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+	
+	
 }
+

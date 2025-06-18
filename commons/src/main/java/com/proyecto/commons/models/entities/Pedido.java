@@ -19,9 +19,9 @@ import jakarta.persistence.Table;
 public class Pedido {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PRODUCTO_SEQ")
-	@SequenceGenerator(name = "PRODUCTO_SEQ", sequenceName = "PRODUCTO_SEQ", allocationSize = 1)
-	@Column(name = "ID_PRODUCTO")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PEDIDO_SEQ")
+	@SequenceGenerator(name = "PEDIDO_SEQ", sequenceName = "PEDIDO_SEQ", allocationSize = 1)
+	@Column(name = "ID_PEDIDO")
 	private Long id;
 	
 	@Column(name = "ID_CLIENTE")
@@ -37,7 +37,7 @@ public class Pedido {
 	private String estado;
 	
 	@ElementCollection
-	@CollectionTable(name = "PEDIDO_PRODCUTOS", joinColumns = @JoinColumn(name = "ID_PRODUCTO"))
+	@CollectionTable(name = "PEDIDO_PRODCUTOS", joinColumns = @JoinColumn(name = "ID_PEDIDO"))
 	private List<ProductoPedido> pedidos;
 
 	public Long getId() {
