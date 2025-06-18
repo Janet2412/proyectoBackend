@@ -33,10 +33,6 @@ public class Producto {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
@@ -53,7 +49,7 @@ public class Producto {
 		this.descripcion = descripcion;
 	}
 
-	public Number getPrecio() {
+	public Double getPrecio() {
 		return precio;
 	}
 
@@ -61,7 +57,7 @@ public class Producto {
 		this.precio = precio;
 	}
 
-	public Number getStock() {
+	public Integer getStock() {
 		return stock;
 	}
 
